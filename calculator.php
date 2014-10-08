@@ -16,8 +16,11 @@
 <h1>Result</h1>
 <?php
 $expr = $_GET['expr'];
+
 echo $expr;
-//echo eval('return '+ $_GET['expr']);
+echo " = ";
+
+eval("echo $expr;");
 ?>
 
 </body>
