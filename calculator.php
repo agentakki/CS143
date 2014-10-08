@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Calculator</title>
+</head>
 <body>
 <h1> Calculator</h1>
 
@@ -12,7 +15,9 @@
 
 <h1>Result</h1>
 <?php
-echo $_GET['expr'];
+$expr = $_GET['expr'];
+echo $expr;
+//echo eval('return '+ $_GET['expr']);
 ?>
 
 </body>
