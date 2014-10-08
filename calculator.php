@@ -10,9 +10,9 @@
 <input type="submit" value="Calculate">
 </form>
 
-
+<h1>Result</h1>
 <?php
-echo "hello, world!";
+echo $_GET['expr'];
 ?>
 
 </body>
