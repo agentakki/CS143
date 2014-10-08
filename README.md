@@ -1,4 +1,4 @@
-CS143-Project1
+CS143
 ==============
 
 Akshay Bakshi
