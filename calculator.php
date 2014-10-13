@@ -16,9 +16,9 @@
 	<h1>Result</h1>
 	<?php
 		$expr = $_GET['expr'];
-		$result = preg_match('((-?\d+\.?\d*)[\+\-\/\*])*(-?\d+\.?\d*)', $expr);
-		//if (preg_match("/(-)?(\d+(.\d+)?)(\s*[+-/*]\s*(-)?(\d+)(.\d+)?)*/", $expr)) {
-		if($result === 1)
+		//$result = preg_match('/^(((-?\d+\.?\d*)[\+\-\/\*])*)-(-?\d+\.?\d*)$/', $expr);
+		if (preg_match('(((-?\d+\.?\d*)[\+\-\/\*])*(-?\d+\.?\d*))', $expr))
+		//if($result === 1)
 		{
 			echo $expr;
 			echo " = ";
