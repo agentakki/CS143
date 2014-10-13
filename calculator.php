@@ -16,15 +16,18 @@
 	<h1>Result</h1>
 	<?php
 		$expr = $_GET['expr'];
-		
-		if (preg_match('/(-)?(\d+(.\d+)?)(\s*[+-/*]\s*(-)?(\d+)(.\d+)?)*/', $expr)) {
+		$result = preg_match('((-?\d+\.?\d*)[\+\-\/\*])*(-?\d+\.?\d*)', $expr);
+		//if (preg_match("/(-)?(\d+(.\d+)?)(\s*[+-/*]\s*(-)?(\d+)(.\d+)?)*/", $expr)) {
+		if($result === 1)
+		{
 			echo $expr;
 			echo " = ";
 			eval("echo $expr;");
 		}
-		else {
+		else  {
 			echo 'Invalid input';
 		}
+
 	?>
 	
 	</body>
