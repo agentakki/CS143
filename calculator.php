@@ -33,7 +33,7 @@
 			$expr = str_replace("--", "+", $expr);
 
 			$result = 0;
-			$result = preg_match('/((-?\d+\.?\d*)\s?[\+\-\/\*])*\s?(-?\d+\.?\d*)/', $expr, $matched);
+			$result = preg_match('/((-?\d+\.?\d*)\s*[\+\-\/\*])*\s*(-?\d+\.?\d*)/', $expr, $matched);
 
 			//cases where our regex might trip
 			if($matched[0] != $expr)
