@@ -16,7 +16,7 @@
 	<h1>Result</h1>
 	<?php
 
-		$production = 0;
+		$production = 1;
 		if($production)
 		{
 			error_reporting(0);
