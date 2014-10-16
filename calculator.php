@@ -30,12 +30,10 @@
 		{
 			$input_expr = $expr; //need to output the exact string despite later modifications
 
-			//Format string to be nice
-			$expr = str_replace(" ", "", $expr);
 			$expr = str_replace("--", "+", $expr);
 
 			$result = 0;
-			$result = preg_match('/((-?\d+\.?\d*)[\+\-\/\*])*(-?\d+\.?\d*)/', $expr, $matched);
+			$result = preg_match('/((-?\d+\.?\d*)\s?[\+\-\/\*])*\s?(-?\d+\.?\d*)/', $expr, $matched);
 
 			//cases where our regex might trip
 			if($matched[0] != $expr)
@@ -49,7 +47,7 @@
 				$result = 0;
 			}
 
-			if(preg_match("/\/0[\+\-\/\*]/", $expr))
+			if(preg_match("/\/0[^\.]/", $input_expr))
 			{
 				$result = 0;
 			}
