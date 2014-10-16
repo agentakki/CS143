@@ -31,8 +31,8 @@
 			$input_expr = $expr; //need to output the exact string despite later modifications
 
 			//Format string to be nice
-			$expr = str_replace("--", "+", $expr);
 			$expr = str_replace(" ", "", $expr);
+			$expr = str_replace("--", "+", $expr);
 
 			$result = 0;
 			$result = preg_match('/((-?\d+\.?\d*)[\+\-\/\*])*(-?\d+\.?\d*)/', $expr, $matched);
