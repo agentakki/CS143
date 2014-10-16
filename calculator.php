@@ -34,6 +34,7 @@
 			$expr = str_replace("--", "+", $expr);
 			$expr = str_replace(" ", "", $expr);
 
+			$result = 0;
 			$result = preg_match('/((-?\d+\.?\d*)[\+\-\/\*])*(-?\d+\.?\d*)/', $expr, $matched);
 
 			//cases where our regex might trip
@@ -41,7 +42,17 @@
 			{
 				$result = 0;
 			} 
-			//TODO: If matched[0] has divide by 0, then output invalid and exit script
+			
+			//divide by 0 at the end 
+			if(preg_match('/\/0$/', $expr))
+			{
+				$result = 0;
+			}
+
+			if(preg_match("/\/0[\+\-\/\*]/", $expr))
+			{
+				$result = 0;
+			}
 
 			if ($result)
 			{
