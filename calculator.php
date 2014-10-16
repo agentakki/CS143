@@ -30,7 +30,6 @@
 		{
 			$input_expr = $expr; //need to output the exact string despite later modifications
 
-			$expr = str_replace("--", "+", $expr);
 
 			$result = 0;
 			$result = preg_match('/((-?\d+\.?\d*)\s*[\+\-\/\*])*\s*(-?\d+\.?\d*)/', $expr, $matched);
@@ -56,6 +55,7 @@
 			{
 				echo $input_expr;
 				echo " = ";
+				$expr = str_replace("--", "+", $expr); //lolz what a hack
 				eval("echo $expr;");
 			}
 			else  
