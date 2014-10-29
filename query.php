@@ -22,11 +22,10 @@
 		mysql_select_db("TEST", $db_connection);
 
         $query = $_GET["query"];
-        $query = "SELECT * FROM Student;";
-        $sanitized_name = mysql_real_escape_string($name, $db_connection);
-        $rs = mysql_query($query, $db_connection);
+        $sanitized_query = mysql_real_escape_string($query, $db_connection);
+        $rs = mysql_query($sanitized_query, $db_connection);
 
-        print "$query<br>";
+        print "$sanitized_query<br>";
 
 		while($row = mysql_fetch_row($rs)) {
 			$sid = $row[0];
