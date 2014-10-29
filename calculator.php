@@ -16,7 +16,7 @@
 	<h1>Result</h1>
 	<?php
 
-		$production = 0;
+		$production = 1;
 		if($production)
 		{
 			error_reporting(0);
@@ -30,10 +30,9 @@
 		{
 			$input_expr = $expr; //need to output the exact string despite later modifications
 
-			$expr = str_replace("--", "+", $expr);
 
 			$result = 0;
-			$result = preg_match('/((-?\d+\.?\d*)\s?[\+\-\/\*])*\s?(-?\d+\.?\d*)/', $expr, $matched);
+			$result = preg_match('/((-?\d+\.?\d*)\s*[\+\-\/\*])*\s*(-?\d+\.?\d*)/', $expr, $matched);
 
 			//cases where our regex might trip
 			if($matched[0] != $expr)
@@ -56,6 +55,7 @@
 			{
 				echo $input_expr;
 				echo " = ";
+				$expr = str_replace("--", "+", $expr); //lolz what a hack
 				eval("echo $expr;");
 			}
 			else  
