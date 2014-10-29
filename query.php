@@ -6,8 +6,11 @@
 <body>
 	<h1>Query</h1>
 
+
+    <p>Enter a query, such as: <b>SELECT * FROM Student;</b></p>
+
     <form method="GET">
-        <textarea name="query" cols="60" rows="8">SELECT * FROM Student;</textarea>
+        <textarea name="query" cols="60" rows="8"></textarea>
         <input type="submit" value="Submit">
     </form>
     <br>
@@ -25,7 +28,7 @@
         $sanitized_query = mysql_real_escape_string($query, $db_connection);
         $rs = mysql_query($sanitized_query, $db_connection);
 
-        print "$sanitized_query<br>";
+        print "<b>YOUR QUERY: </b>$sanitized_query<br><br>";
 
 		while($row = mysql_fetch_row($rs)) {
 			$sid = $row[0];
