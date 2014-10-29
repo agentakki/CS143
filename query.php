@@ -6,9 +6,10 @@
 <body>
 	<h1>Query</h1>
 
-	<TEXTAREA NAME="area" ROWS=5 COLS=30>
-        SELECT * FROM Actor WHERE id < 20;
-	</TEXTAREA>
+    <form method="GET">
+        <textarea name="query" cols="60" rows="8">SELECT * FROM Student;</textarea>
+        <input type="submit" value="Submit">
+    </form>
     <br>
 	
 	<?php
@@ -19,24 +20,20 @@
             exit(1);
         }
 		mysql_select_db("TEST", $db_connection);
-		$query = "select * from Student";
-		$rs = mysql_query($query, $db_connection);
+
+        $query = $_GET["query"];
+        $query = "SELECT * FROM Student;";
+        $sanitized_name = mysql_real_escape_string($name, $db_connection);
+        $rs = mysql_query($query, $db_connection);
+
+        print "$query<br>";
+
 		while($row = mysql_fetch_row($rs)) {
+			$sid = $row[0];
 			$name = $row[1];
 			$email = $row[2];
 			print "$sid, $name, $email<br />";
 		}
-
-        //$query = "update Student set email = CONCAT(email, '.edu')";
-        mysql_query($query, $db_connection);
-
-        $affected = mysql_affected_rows($db_connection);
-        print "Total affected rows: $affected<br />";
-
-        $query = "select * from Student where name = '%s'";
-        $sanitized_name = mysql_real_escape_string($name, $db_connection);
-        $query_to_issue = sprintf($query, $sanitized_name);
-        $rs = mysql_query($query_to_issue, $db_connection);
 
 		// close the connection when done
 		mysql_close($db_connection);
