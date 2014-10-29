@@ -1,0 +1,5 @@
+Constraints (in english)
+
+Movie: id should be unique, can't be null. Title, year, company can't be null. rating?? 
+Actor: id should be unique, can't be null. last, furst, sex, dob can't be null
+Director: id should be unique. id, last, first,dob  can't be null, 
